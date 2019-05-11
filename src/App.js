@@ -35,7 +35,9 @@ class App extends Component {
   }
 
   addNote = (note) => {
-    this.db.push().set({ name: note, done: false });
+    if (note !== '') {
+      this.db.push().set({ name: note, done: false });
+    }
   }
 
   taskStatus = (e) => {
@@ -61,7 +63,7 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <h1>ToDO App</h1>
+        <h1>Todos</h1>
         <div className="row">
           <div className="col-md-6">
             <TaskForm addNote={this.addNote} />
